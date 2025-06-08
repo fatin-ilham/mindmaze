@@ -1,7 +1,77 @@
 [
-  "I speak without a mouth and hear without ears. What am I?",
-  "What has keys but can’t open locks?",
-  "The more you take, the more you leave behind. What are they?",
-  "What can travel around the world while staying in the same corner?",
-  "I have branches, but no fruit, trunk or leaves. What am I?"
+  {
+    "question": "What gets wetter the more it dries?",
+    "answer": "towel",
+    "hint": "You use it after a shower."
+  },
+  {
+    "question": "What has hands but can’t clap?",
+    "answer": "clock",
+    "hint": "It ticks all the time."
+  },
+  {
+    "question": "I speak without a mouth and hear without ears. I have nobody, but I come alive with wind. What am I?",
+    "answer": "echo",
+    "hint": "You hear me when you shout in a canyon."
+  },
+  {
+    "question": "I’m tall when I’m young, and I’m short when I’m old. What am I?",
+    "answer": "candle",
+    "hint": "I melt away as I shine."
+  },
+  {
+    "question": "What has many keys but can’t open a single lock?",
+    "answer": "piano",
+    "hint": "You play music with me."
+  },
+  {
+    "question": "The more you take, the more you leave behind. What am I?",
+    "answer": "footsteps",
+    "hint": "Think about walking on the sand."
+  },
+  {
+    "question": "What can travel around the world while staying in the same spot?",
+    "answer": "stamp",
+    "hint": "It’s stuck on an envelope."
+  },
+  {
+    "question": "What comes once in a minute, twice in a moment, but never in a thousand years?",
+    "answer": "the letter m",
+    "hint": "Look carefully at the words."
+  },
+  {
+    "question": "What has to be broken before you can use it?",
+    "answer": "egg",
+    "hint": "It’s breakfast’s best friend."
+  },
+  {
+    "question": "I have cities but no houses, forests but no trees, and rivers but no water. What am I?",
+    "answer": "map",
+    "hint": "You use me to find your way."
+  },
+  {
+    "question": "What can fill a room but takes up no space?",
+    "answer": "light",
+    "hint": "You switch me on when it’s dark."
+  },
+  {
+    "question": "I’m found in socks, scarves and mittens; and often in the paws of playful kittens. What am I?",
+    "answer": "yarn",
+    "hint": "It’s made of thread."
+  },
+  {
+    "question": "What has a neck but no head?",
+    "answer": "bottle",
+    "hint": "You drink from me."
+  },
+  {
+    "question": "If you drop me, I’m sure to crack, but give me a smile and I’ll always smile back. What am I?",
+    "answer": "mirror",
+    "hint": "I reflect your image."
+  },
+  {
+    "question": "I’m light as a feather, yet the strongest man can’t hold me for much longer than a minute. What am I?",
+    "answer": "breath",
+    "hint": "You do this every second without thinking."
+  }
 ]
