@@ -13,7 +13,7 @@ function showRiddle() {
   currentRiddle = riddles[randomIndex]; // Save the selected riddle
   document.getElementById("riddleBox").innerText = currentRiddle.question;
   
-  // Optional UI updates if you need them here:
+
   document.getElementById("userAnswer").style.display = "block";
   document.getElementById("submitBtn").style.display = "inline-block";
   document.getElementById("hintBtn").style.display = "inline-block";
