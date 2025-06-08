@@ -56,6 +56,10 @@
       font-weight: bold;
       margin-top: 15px;
     }
+
+    #answerReveal {
+      color: #00ffcc;
+    }
   </style>
 </head>
 <body>
@@ -64,14 +68,16 @@
 
   <div class="container">
     <div id="riddleBox">Click below to get a riddle!</div>
-    <input type="text" id="userAnswer" placeholder="Your answer..." style="display:none;"/>
+    <input type="text" id="userAnswer" placeholder="Your answer..." style="display:none;" />
     <div>
       <button class="btn" onclick="showRiddle()">Get Riddle</button>
       <button class="btn" id="hintBtn" onclick="showHint()" style="display:none;">Show Hint</button>
     </div>
     <button class="btn" id="submitBtn" onclick="checkAnswer()" style="display:none;">Submit Answer</button>
+    <button class="btn" id="showAnswerBtn" onclick="showAnswer()" style="display:none;">Show Answer</button>
     <p id="hintText" class="hint"></p>
     <p id="feedback"></p>
+    <p id="answerReveal" style="display:none; font-weight: bold; margin-top: 10px;"></p>
     <button class="btn" onclick="resetGame()" id="resetBtn" style="display:none;">Try Another</button>
   </div>
 
@@ -87,8 +93,11 @@
           document.getElementById("userAnswer").style.display = "block";
           document.getElementById("submitBtn").style.display = "inline-block";
           document.getElementById("hintBtn").style.display = "inline-block";
+          document.getElementById("showAnswerBtn").style.display = "inline-block";
           document.getElementById("hintText").innerText = "";
           document.getElementById("feedback").innerText = "";
+          document.getElementById("answerReveal").innerText = "";
+          document.getElementById("answerReveal").style.display = "none";
           document.getElementById("resetBtn").style.display = "none";
         });
     }
@@ -103,6 +112,7 @@
       if (isCorrect) {
         document.getElementById("submitBtn").style.display = "none";
         document.getElementById("hintBtn").style.display = "none";
+        document.getElementById("showAnswerBtn").style.display = "none";
         document.getElementById("resetBtn").style.display = "inline-block";
       }
     }
@@ -113,13 +123,27 @@
       }
     }
 
+    function showAnswer() {
+      if (currentRiddle && currentRiddle.answer) {
+        document.getElementById("answerReveal").innerText = "🧩 Answer: " + currentRiddle.answer;
+        document.getElementById("answerReveal").style.display = "block";
+        document.getElementById("submitBtn").style.display = "none";
+        document.getElementById("hintBtn").style.display = "none";
+        document.getElementById("showAnswerBtn").style.display = "none";
+        document.getElementById("resetBtn").style.display = "inline-block";
+      }
+    }
+
     function resetGame() {
       document.getElementById("userAnswer").value = "";
       document.getElementById("userAnswer").style.display = "none";
       document.getElementById("submitBtn").style.display = "none";
       document.getElementById("hintBtn").style.display = "none";
+      document.getElementById("showAnswerBtn").style.display = "none";
       document.getElementById("hintText").innerText = "";
       document.getElementById("feedback").innerText = "";
+      document.getElementById("answerReveal").innerText = "";
+      document.getElementById("answerReveal").style.display = "none";
       document.getElementById("riddleBox").innerText = "Click below to get a riddle!";
       document.getElementById("resetBtn").style.display = "none";
     }
