@@ -74,4 +74,68 @@
     "answer": "breath",
     "hint": "You do this every second without thinking."
   }
+
+   [
+  {
+    "question": "I speak without a mouth and hear without ears. I have nobody, but I come alive with the wind. What am I?",
+    "answer": "Echo",
+    "hint": "It's a reflection of sound."
+  },
+  {
+    "question": "I’m tall when I’m young, and I’m short when I’m old. What am I?",
+    "answer": "A candle",
+    "hint": "I melt as time passes."
+  },
+  {
+    "question": "What has keys but can’t open locks?",
+    "answer": "A piano",
+    "hint": "You play music on me."
+  },
+  {
+    "question": "What has a head, a tail, is brown, and has no legs?",
+    "answer": "A penny",
+    "hint": "I’m a form of money."
+  },
+  {
+    "question": "The more you take, the more you leave behind. What am I?",
+    "answer": "Footsteps",
+    "hint": "You leave these when you walk."
+  },
+  {
+    "question": "What comes once in a minute, twice in a moment, but never in a thousand years?",
+    "answer": "The letter M",
+    "hint": "Look carefully at the words."
+  },
+  {
+    "question": "I have cities but no houses, forests but no trees, and rivers but no water. What am I?",
+    "answer": "A map",
+    "hint": "I represent places, but not physically."
+  },
+  {
+    "question": "What has hands but can’t clap?",
+    "answer": "A clock",
+    "hint": "I tell you the time."
+  },
+  {
+    "question": "What begins with T, ends with T, and has T in it?",
+    "answer": "A teapot",
+    "hint": "It’s used in the kitchen for a warm drink."
+  },
+  {
+    "question": "I’m found in socks, scarves and mittens; and often in the paws of playful kittens. What am I?",
+    "answer": "Yarn",
+    "hint": "It’s made of thread and used in knitting."
+  },
+  {
+    "question": "What can fill a room but takes up no space?",
+    "answer": "Light",
+    "hint": "You need it to see."
+  },
+  {
+    "question": "I have no eyes, no ears, and no mouth, yet I come alive with the wind. What am I?",
+    "answer": "An echo",
+    "hint": "You hear me but I don’t have a body."
+  }
+]
+
 ]
