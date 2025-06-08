@@ -4,15 +4,125 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MindMaze</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(to right, #667eea, #764ba2);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      margin: auto;
+    }
+
+    button, input[type="text"] {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-size: 1em;
+    }
+
+    .btn {
+      background-color: #fff;
+      color: #333;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .btn:hover {
+      background-color: #f0f0f0;
+    }
+
+    .hint {
+      color: #ffd700;
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    #feedback {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
 </head>
 <body>
+  <h1>🧠 Welcome to MindMaze</h1>
+  <p>Sharpen your mind with a fun and thoughtful riddle each day!</p>
+
   <div class="container">
-    <h1>🧠 MindMaze</h1>
-    <p class="tagline">Challenge your brain every day with a new riddle!</p>
-    <div class="riddle-box" id="riddleBox">Click the button below to start</div>
-    <button onclick="showRiddle()" class="btn">Give Me a Riddle</button>
+    <div id="riddleBox">Click below to get a riddle!</div>
+    <input type="text" id="userAnswer" placeholder="Your answer..." style="display:none;"/>
+    <div>
+      <button class="btn" onclick="showRiddle()">Get Riddle</button>
+      <button class="btn" id="hintBtn" onclick="showHint()" style="display:none;">Show Hint</button>
+    </div>
+    <button class="btn" id="submitBtn" onclick="checkAnswer()" style="display:none;">Submit Answer</button>
+    <p id="hintText" class="hint"></p>
+    <p id="feedback"></p>
+    <button class="btn" onclick="resetGame()" id="resetBtn" style="display:none;">Try Another</button>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    let currentRiddle = null;
+
+    function showRiddle() {
+      fetch('riddles.json')
+        .then(res => res.json())
+        .then(data => {
+          currentRiddle = data[Math.floor(Math.random() * data.length)];
+          document.getElementById("riddleBox").innerText = currentRiddle.question;
+          document.getElementById("userAnswer").style.display = "block";
+          document.getElementById("submitBtn").style.display = "inline-block";
+          document.getElementById("hintBtn").style.display = "inline-block";
+          document.getElementById("hintText").innerText = "";
+          document.getElementById("feedback").innerText = "";
+          document.getElementById("resetBtn").style.display = "none";
+        });
+    }
+
+    function checkAnswer() {
+      const userAnswer = document.getElementById("userAnswer").value.trim().toLowerCase();
+      if (!userAnswer) return;
+      const isCorrect = userAnswer === currentRiddle.answer.toLowerCase();
+      document.getElementById("feedback").innerText = isCorrect
+        ? "✅ That's correct! You're sharp!"
+        : "❌ Not quite. Try again or reveal the hint!";
+      if (isCorrect) {
+        document.getElementById("submitBtn").style.display = "none";
+        document.getElementById("hintBtn").style.display = "none";
+        document.getElementById("resetBtn").style.display = "inline-block";
+      }
+    }
+
+    function showHint() {
+      if (currentRiddle && currentRiddle.hint) {
+        document.getElementById("hintText").innerText = "💡 Hint: " + currentRiddle.hint;
+      }
+    }
+
+    function resetGame() {
+      document.getElementById("userAnswer").value = "";
+      document.getElementById("userAnswer").style.display = "none";
+      document.getElementById("submitBtn").style.display = "none";
+      document.getElementById("hintBtn").style.display = "none";
+      document.getElementById("hintText").innerText = "";
+      document.getElementById("feedback").innerText = "";
+      document.getElementById("riddleBox").innerText = "Click below to get a riddle!";
+      document.getElementById("resetBtn").style.display = "none";
+    }
+  </script>
 </body>
 </html>
