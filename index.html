@@ -60,6 +60,12 @@
     #answerReveal {
       color: #00ffcc;
     }
+
+    #score {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
   </style>
 </head>
 <body>
@@ -67,6 +73,7 @@
   <p>Sharpen your mind with a fun and thoughtful riddle each day!</p>
 
   <div class="container">
+    <p id="score">🏆 Score: 0</p>
     <div id="riddleBox">Click below to get a riddle!</div>
     <input type="text" id="userAnswer" placeholder="Your answer..." style="display:none;" />
     <div>
@@ -83,6 +90,11 @@
 
   <script>
     let currentRiddle = null;
+    let score = 0;
+
+    function updateScoreDisplay() {
+      document.getElementById("score").innerText = "🏆 Score: " + score;
+    }
 
     function showRiddle() {
       fetch('riddles.json')
@@ -110,6 +122,8 @@
         ? "✅ That's correct! You're sharp!"
         : "❌ Not quite. Try again or reveal the hint!";
       if (isCorrect) {
+        score++;
+        updateScoreDisplay();
         document.getElementById("submitBtn").style.display = "none";
         document.getElementById("hintBtn").style.display = "none";
         document.getElementById("showAnswerBtn").style.display = "none";
